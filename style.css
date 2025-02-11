@@ -61,12 +61,52 @@ body {
 
   margin-bottom: 1em;
 }
-
-textarea {
+.mirrorcontainer {
   flex: 1;
-  height: 50vh;
+  height: 20vh;
   min-height: 300px;
   max-width: 500px;
+  background-color: white;
+
+  font: 20px monospace;
+
+  position: relative;
+}
+.mirrorcontainer > * {
+  position: absolute;
+  margin: 0;
+  border: 0;
+  font: inherit;
+  padding: 2px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.mirror {
+  color: transparent;
+}
+.mirror > [data-new=true] {
+  background-color: #ebdae2;
+}
+.mirror > .hovered {
+  background-color: #f3c469;
+}
+.mirror > .leftOrigin {
+  background-color: #adffd8;
+}
+.mirror > .rightOrigin {
+  background-color: #ade0ff;
+}
+
+
+textarea {
+  /* Need to make this as "generic" as possible to line up characters */
+  background-color: transparent;
+
+  width: 100%;
+  height: 100%;
+
+  /* color: rgba(0, 0, 0, 0.5); */
 }
 
 button {
@@ -74,17 +114,16 @@ button {
   margin: 1em auto;
 }
 
-#pushRight {
-  /* top: 50px; */
-}
-
-#pushLeft {
-  /* top: 100px; */
-}
-
 #reset {
-  /* top: 170px;
-  font-size: 24px;
-  width: 3em;
-  margin-left: -1.5em; */
+  margin-top: 3em;
+}
+
+#iteminfo {
+  width: fit-content;
+  /* background-color: hotpink; */
+  margin: 1em auto;
+  /* max-width: 300px; */
+  font: 20px monospace;
+  color: white;
+  white-space: pre-wrap;
 }

@@ -294,4 +294,8 @@ export class CRDTDocument<T = string> {
   mergeFrom(other: CRDTDocument<T>) {
     merge(this.inner, other.inner)
   }
+
+  has(id: Id): boolean {
+    return isInVersion(id, this.inner.version)
+  }
 }

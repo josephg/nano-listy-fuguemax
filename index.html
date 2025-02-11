@@ -6,21 +6,29 @@
   </head>
   <body>
     <div id="textcontainer">
-      <textarea
-        id="text1"
-        spellcheck="false"
-        placeholder="User 1 (type here)"
-      ></textarea>
+      <div class="mirrorcontainer">
+        <div class="mirror" id="mirror1"></div>
+        <textarea
+          id="text1"
+          spellcheck="false"
+          placeholder="User 1 (type here)"
+        ></textarea>
+      </div>
 
-      <textarea
-        id="text2"
-        spellcheck="false"
-        placeholder="User 2 (type here)"
-      ></textarea>
+      <div class="mirrorcontainer">
+        <div class="mirror" id="mirror2"></div>
+        <textarea
+          id="text2"
+          spellcheck="false"
+          placeholder="User 2 (type here)"
+        ></textarea>
+      </div>
     </div>
 
     <button id="pushRight">Left to right -&gt;</button>
     <button id="pushLeft">Right to left &lt;-</button>
+
+    <div id="iteminfo"></div>
     <button id="reset" onClick="reset()">Reset everything</button>
 
     <script type="module" src="crdt.js"></script>
