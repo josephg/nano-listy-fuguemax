@@ -61,7 +61,7 @@ const attachEditor = (agentName: string, elemName: string) => {
           let { pos, del, ins } = calcDiff(lastValue, newValue)
 
           if (del > 0) doc.del(pos, del)
-          if (ins !== '') doc.ins(pos, ins)
+          if (ins !== '') doc.ins(pos, [...ins])
 
           if (doc.getString() != newValue) throw Error('Diff invalid - document does not match')
 
