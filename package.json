@@ -1,9 +1,16 @@
 {
-  "dependencies": {
+  "scripts": {
+    "build": "tsc",
+    "start": "serve"
+  },
+  "devDependencies": {
     "@types/bun": "^1.2.2",
     "@types/seed-random": "^2.2.4",
     "seed-random": "^2.2.0",
     "typescript": "^5.7.3"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
 }
