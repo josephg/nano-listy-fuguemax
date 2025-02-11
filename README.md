@@ -1,5 +1,7 @@
 # Nano List based FugueMax
 
+[**Play with it online**](https://josephg.github.io/nano-listy-fuguemax/)
+
 This is a tiny reference implementation of the current best-in-class list / text based CRDT: [FugueMax](https://github.com/mweidner037/fugue) / YjsMod. FugueMax is fast, correct and guarantees non-interleaving.
 
 FugueMax is described in this paper: [The Art of the Fugue: Minimizing Interleaving in Collaborative Text Editing](https://arxiv.org/abs/2305.00583).
@@ -14,7 +16,7 @@ FugueMax itself (in the paper) is a combination of Fugue and my YjsMod algorithm
 This library contains 3 things:
 
 1. **[crdt.ts](crdt.ts)**: This file contains the FugueMax / YjsMod list CRDT implementation. Note this implementation is written for educational purposes. It has no optimisations, and its missing the ability to save and load the CRDT to and from disk. And its missing the ability to sync the CRDT over the network - which is generally a nice thing to be able to do. This file is hopefully easy to read. Its less than 300 lines of code.
-2. **[editor.ts](editor.ts) & [index.html](index.html)**: These files contain a working web based text editor which can sync changes between two editors. Again, treat this as a reference implementation.
+2. **[editor.ts](editor.ts) & [index.html](index.html)**: These files contain a working web based text editor which can sync changes between two editors. Again, treat this as a reference implementation. This implementation is vanilla JS to make it easy as possible to understand and play with.
 3. **[test.ts](test.ts)**: A series of unit tests and a fuzzer for the CRDT implementation. If you ever see a collaborative editor with no fuzzer, run for the hills.
 
 

@@ -1,11 +1,14 @@
+// This file implements a super simple text editor using textarea on top of the
+// CRDT implementation.
+
 import { CRDTDocument } from "./crdt.js"
 
-export type DiffResult = {pos: number, del: number, ins: string}
+type DiffResult = {pos: number, del: number, ins: string}
 
 // This is a very simple diff function. Notably it doesn't take into account
 // the user's cursor position - so as you type "aaaaa", we can't tell which
 // "a" you've just inserted each time.
-export const calcDiff = (oldval: string, newval: string): DiffResult => {
+const calcDiff = (oldval: string, newval: string): DiffResult => {
   // Strings are immutable and have reference equality. I think this test is O(1), so its worth doing.
   if (oldval === newval) return {pos: 0, del: 0, ins: ''}
 
@@ -41,7 +44,7 @@ const elemById = (name: string): HTMLElement => {
   return elem
 }
 
-const wireUpEditor = (agentName: string, elemName: string) => {
+const attachEditor = (agentName: string, elemName: string) => {
   const elem = elemById(elemName) as HTMLTextAreaElement
 
   const doc = new CRDTDocument(agentName)
@@ -84,10 +87,9 @@ const wireUpEditor = (agentName: string, elemName: string) => {
   }
 }
 
-
 window.onload = () => {
-  const a = wireUpEditor('a', 'text1')
-  const b = wireUpEditor('b', 'text2')
+  const a = attachEditor('a', 'text1')
+  const b = attachEditor('b', 'text2')
 
   elemById('reset').onclick = () => {
     console.log('reset')
