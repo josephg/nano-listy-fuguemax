@@ -54,18 +54,15 @@ const attachEditor = (agentName: string, elemName: string) => {
   ;['textInput', 'keydown', 'keyup', 'select', 'cut', 'paste', 'input'].forEach(eventName => {
     elem.addEventListener(eventName, e => {
       setTimeout(() => {
-        // assert(vEq(doc.getLocalVersion(), last_version))
         let newValue = elem.value
         if (newValue !== lastValue) {
           let { pos, del, ins } = calcDiff(lastValue, newValue.replace(/\r\n/g, '\n'))
 
           if (del > 0) doc.del(pos, del)
           if (ins !== '') doc.ins(pos, ins)
-          // console.log('server version', Array.from(server_version))
 
           if (doc.getString() != newValue) throw Error('Diff invalid - document does not match')
 
-          // last_version = doc.getLocalVersion()
           lastValue = newValue
 
           console.log(doc.inner)

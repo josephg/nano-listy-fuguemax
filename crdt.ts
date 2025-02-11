@@ -132,9 +132,11 @@ function integrate<T>(doc: Doc<T>, newItem: Item<T>, idx_hint: number = -1) {
   let right = newItem.originRight == null ? doc.content.length : findItemAtId(doc, newItem.originRight)!
   let scanning = false
 
+  // This loop scans forward from destIdx until it finds the right place to insert into
+  // the list.
   for (let i = destIdx; ; i++) {
-    // Inserting at the end of the document. Just insert.
     if (!scanning) destIdx = i
+    // If we reach the end of the document, just insert.
     if (i === doc.content.length) break
     if (i === right) break // No ambiguity / concurrency. Insert here.
 
