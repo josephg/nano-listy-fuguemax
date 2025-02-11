@@ -55,8 +55,10 @@ const attachEditor = (agentName: string, elemName: string) => {
     elem.addEventListener(eventName, e => {
       setTimeout(() => {
         let newValue = elem.value
+        // Fix for windows - replace \r\n with just \n.
+        newValue = newValue.replace(/\r\n/g, '\n')
         if (newValue !== lastValue) {
-          let { pos, del, ins } = calcDiff(lastValue, newValue.replace(/\r\n/g, '\n'))
+          let { pos, del, ins } = calcDiff(lastValue, newValue)
 
           if (del > 0) doc.del(pos, del)
           if (ins !== '') doc.ins(pos, ins)
