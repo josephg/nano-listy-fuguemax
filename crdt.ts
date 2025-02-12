@@ -269,9 +269,6 @@ export class CRDTDocument<T = string> {
     this.agent = agent
   }
 
-  // ins(pos: number, content: T) {
-  //   localInsert(this.inner, this.agent, pos, content)
-  // }
   ins(pos: number, content: T[]) {
     for (const i of content) {
       localInsert(this.inner, this.agent, pos, i)

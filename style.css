@@ -86,7 +86,7 @@ body {
   color: transparent;
 }
 .mirror > [data-new=true] {
-  background-color: #ebdae2;
+  background-color: #daebdd;
 }
 .mirror > .hovered {
   background-color: #f3c469;

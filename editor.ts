@@ -89,14 +89,14 @@ const attachEditor = (agentName: string, textareaId: string, mirrorId: string, i
 
   let lastHighlightedElems: Element[] = []
   textareaElem.onmousemove = (e: MouseEvent) => {
-    for (const e of lastHighlightedElems) {
-      e.removeAttribute('class')
-    }
-
     for (const _elem of document.elementsFromPoint(e.clientX, e.clientY)) {
       // elementsFromPoint will return the textarea, and everything behind it
       // - including the span (what we want), the div, the body and so on.
       if (_elem.tagName === 'SPAN') {
+        for (const e of lastHighlightedElems) {
+          e.removeAttribute('class')
+        }
+
         const elem = _elem as HTMLElement
         // elem.setAttribute('class', 'hovered')
 
