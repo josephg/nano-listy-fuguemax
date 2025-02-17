@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsc",
+    "build": "bun build ./editor.ts --outfile bundle.js --target browser",
     "start": "serve",
     "postinstall": "tsc"
   },
