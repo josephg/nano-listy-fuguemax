@@ -1,8 +1,7 @@
 {
   "scripts": {
     "build": "bun build ./editor.ts --outfile bundle.js --target browser",
-    "start": "serve",
-    "postinstall": "tsc"
+    "postinstall": "bun run build"
   },
   "devDependencies": {
     "@types/bun": "^1.2.2",
